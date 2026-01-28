@@ -1,7 +1,7 @@
-const { ethers } = require("ethers");
-const { baseWordDaily } = require("../blockchain/baseWordDaily");
+import { ethers } from "ethers";
+import { baseWordDaily } from "../blockchain/baseWordDaily";
 
-function getUtcDayYYYYMMDD() {
+function getUtcDayYYYYMMDD(): number {
   const now = new Date();
   const yyyy = now.getUTCFullYear();
   const mm = String(now.getUTCMonth() + 1).padStart(2, "0");
@@ -9,12 +9,11 @@ function getUtcDayYYYYMMDD() {
   return Number(`${yyyy}${mm}${dd}`);
 }
 
-// TODO: replace with real daily word selection logi
-async function selectTodayWord() {
+async function selectTodayWord(): Promise<string> {
   return "CRANE";
 }
 
-async function main() {
+async function main(): Promise<void> {
   const day = getUtcDayYYYYMMDD();
   const word = await selectTodayWord();
 
