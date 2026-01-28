@@ -8,6 +8,7 @@
     "commit-daily-word": "ts-node-dev --transpile-only src/scripts/commitDailyWord.ts"
   },
   "dependencies": {
+    "@farcaster/miniapp-sdk": "^0.2.2",
     "dotenv": "^16.4.0",
     "ethers": "^6.12.0",
     "express": "^4.19.0"
