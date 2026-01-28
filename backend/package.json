@@ -2,14 +2,20 @@
   "name": "base-word-daily-backend",
   "version": "1.0.0",
   "private": true,
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "dev": "node src/index.js",
-    "commit-daily-word": "node src/scripts/commitDailyWord.js"
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "commit-daily-word": "ts-node-dev --transpile-only src/scripts/commitDailyWord.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.0",
     "ethers": "^6.12.0",
     "express": "^4.19.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.0"
   }
 }
