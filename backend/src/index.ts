@@ -1,11 +1,13 @@
 import express, { Request, Response } from "express";
 import * as dotenv from "dotenv";
+import path from "path";
 import { baseWordDaily } from "./blockchain/baseWordDaily";
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("/health", (req: Request, res: Response) => {
   res.json({ status: "ok" });

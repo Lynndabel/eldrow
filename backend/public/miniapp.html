@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base Word Daily</title>
+  </head>
+  <body>
+    <main id="app" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 16px;">
+      <h1 style="margin: 0 0 8px 0; font-size: 20px;">Base Word Daily</h1>
+      <p id="status" style="margin: 0 0 16px 0; color: #555;">Loading miniapp...</p>
+      <div id="content" style="font-size: 14px; line-height: 1.4;"></div>
+    </main>
+
+    <script type="module">
+      import { sdk } from "https://cdn.jsdelivr.net/npm/@farcaster/miniapp-sdk@0.2.2/dist/miniapp-sdk.esm.js";
+
+      const statusEl = document.getElementById("status");
+      const contentEl = document.getElementById("content");
+
+      async function init() {
+        try {
+          await sdk.actions.ready();
+          statusEl.textContent = "Ready";
+
+          const context = await sdk.context.getCurrentContext();
+          const fid = context?.viewer?.fid ?? "unknown";
+
+          contentEl.textContent = `Welcome, FID ${fid}. Daily word game UI goes here (off-chain).`;
+        } catch (error) {
+          statusEl.textContent = "Failed to initialize miniapp";
+        }
+      }
+
+      init();
+    </script>
+  </body>
+</html>
