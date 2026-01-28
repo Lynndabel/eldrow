@@ -9,7 +9,7 @@ function getUtcDayYYYYMMDD() {
   return Number(`${yyyy}${mm}${dd}`);
 }
 
-// TODO: replace with real daily word selection logic (off-chain)
+// TODO: replace with real daily word selection logi
 async function selectTodayWord() {
   return "CRANE";
 }
